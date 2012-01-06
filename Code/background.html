@@ -1,0 +1,13 @@
+<html>
+  <head>
+	<script>
+		function makeDownloadLinks(tabId, changeInfo, tab) {
+			if (tab.url.search(/vimeo.com\/[0-9]+/) > -1) {
+				chrome.tabs.sendRequest(tab.id, {action: 'ShowLink'}, function(response){
+				});
+			}
+		};
+		chrome.tabs.onUpdated.addListener(makeDownloadLinks);
+	</script>
+  </head>
+</html>
